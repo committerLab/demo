@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "firstName": "Peters",
+  "lastName": "Oleg",
+  "phone": "06 42 79 03 28",
+  "email": "olegpeters@icloud.ca",
+  "address": "176-6378 Laoreet Road",
+  "country": "Australia",
+  "zipCode": "62636",
+  "birthDate": "2003-12-21"
+}
