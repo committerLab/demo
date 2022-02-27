@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Repository
@@ -22,7 +23,6 @@ public class UserRepository{
     public List<User> findAll(){
         return Arrays.asList(restTemplate.getForObject(uri, User[].class));
     }
-
     /**
      * Get user by provided id
      * @param id user's id

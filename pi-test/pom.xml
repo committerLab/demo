@@ -15,6 +15,7 @@
     <description>pi-test-demo</description>
     <properties>
         <java.version>1.8</java.version>
+        <junit.version>5.8.2</junit.version>
     </properties>
     <dependencies>
         <dependency>
@@ -27,6 +28,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- junit 5, unit test -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -35,9 +43,8 @@
 
         <dependency>
             <groupId>org.pitest</groupId>
-            <artifactId>pitest-parent</artifactId>
-            <version>1.7.3</version>
-            <type>pom</type>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>0.15</version>
         </dependency>
     </dependencies>
 
@@ -58,7 +65,21 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.7.3</version>
+                <version>1.4.3</version>
+
+                <executions>
+                    <execution>
+                        <id>pit-report</id>
+                        <!-- optional, this example attached the goal into mvn test phase -->
+                        <phase>test</phase>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <!-- https://github.com/hcoles/pitest/issues/284 -->
+                <!-- Need this to support JUnit 5 -->
                 <dependencies>
                     <dependency>
                         <groupId>org.pitest</groupId>
@@ -68,13 +89,14 @@
                 </dependencies>
                 <configuration>
                     <targetClasses>
-                        <param>fr.committer.demo.pitestdemo.*</param>
+                        <param>fr.committer.demo.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>fr.committer.demo.pitestdemo.*</param>
+                        <param>fr.committer.demo.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
