@@ -1,8 +1,11 @@
 package fr.committer.demo.mockserverdemo.config;
 
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
+
+import java.time.Duration;
 
 @Configuration
 public class UserConfig {
@@ -12,6 +15,6 @@ public class UserConfig {
      */
     @Bean
     public RestTemplate restTemplate(){
-        return new RestTemplate();
+        return new RestTemplateBuilder().setReadTimeout(Duration.ofSeconds(2)).setConnectTimeout(Duration.ofSeconds(2)).build();
     }
 }

@@ -1,0 +1,17 @@
+query{
+  users{
+  	id
+    lastName
+    firstName
+    email
+    phone
+    address
+    country
+    zipCode
+    posts {
+        id
+        title
+        content
+    }
+  }
+}

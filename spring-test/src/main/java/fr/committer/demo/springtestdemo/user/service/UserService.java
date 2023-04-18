@@ -19,7 +19,12 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList());
+        String test = StaticClass.test();
+        return StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList()).stream()
+                .map(user -> {
+                    user.setAddress(test);
+                    return user;
+                }).collect(Collectors.toList());
     }
 
     public User saveUser(User user) {
@@ -33,4 +38,5 @@ public class UserService {
 
         return userRepository.save(user);
     }
+
 }

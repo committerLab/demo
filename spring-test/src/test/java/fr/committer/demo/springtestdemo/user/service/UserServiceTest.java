@@ -10,7 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.util.Assert;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,9 +22,12 @@ public class UserServiceTest {
     @InjectMocks
     private UserService userService;
 
+
     @Test
     public void shouldGetListOf2Users_ok(){
         Mockito.when(userRepository.findAll()).thenReturn(getListOfUsers());
+
+
         List<User> users = userService.getAllUsers();
         Assertions.assertNotNull(users);
         Assertions.assertEquals(2, users.size());
@@ -48,8 +50,7 @@ public class UserServiceTest {
         Assertions.assertEquals("Sweden", users.get(1).getCountry());
         Assertions.assertEquals("34956", users.get(1).getZipCode());
         Assertions.assertEquals(LocalDate.of(1980,2,12), users.get(1).getBirthDate());
-
-    }
+        }
     private List<User> getListOfUsers(){
         return Lists.newArrayList(
                 createUser(

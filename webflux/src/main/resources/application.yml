@@ -1,1 +1,6 @@
-
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/cra-db
+    username: cra-user
+    password: root
+    driver-class-name: "org.mariadb.jdbc.Driver"

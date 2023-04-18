@@ -1,0 +1,7 @@
+mutation createUser($post: PostInput){
+  addPost(post:$post) {
+    id
+    title
+    content
+ }
+}

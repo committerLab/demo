@@ -13,5 +13,7 @@ class PalindromeTest {
     void whenPalindrom_thenAccept() {
         Palindrome palindromeTester = new Palindrome();
         Assertions.assertTrue(palindromeTester.isPalindrome("noon"));
+        int one = 1;
+        Assertions.assertEquals(one,1);
     }
 }

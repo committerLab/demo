@@ -1,0 +1,17 @@
+query findUserById($id: ID!){
+    user(id: $id) {
+        id
+        lastName
+        firstName
+        email
+        phone
+        address
+        country
+        zipCode
+        posts {
+            id
+            title
+            content
+        }
+    }
+}

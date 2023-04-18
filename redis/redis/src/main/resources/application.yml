@@ -1,0 +1,5 @@
+redis:
+  host-name: localhost
+  port: 6379
+  user-name: Boubker
+  password: password

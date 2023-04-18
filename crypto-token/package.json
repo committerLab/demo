@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0",
+    "openzeppelin-solidity": "^4.6.0"
+  }
+}
